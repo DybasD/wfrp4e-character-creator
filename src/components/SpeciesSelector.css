@@ -1,0 +1,52 @@
+.species-selector {
+  text-align: center;
+}
+
+.species-selector h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  color: #8b0000;
+  margin-bottom: 1rem;
+}
+
+.species-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.species-card {
+  padding: 1.5rem 1rem;
+  border: 2px solid #d4c5a9;
+  border-radius: 6px;
+  background: #fefefe;
+  cursor: pointer;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1rem;
+  color: #2c2c2c;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.species-card:hover {
+  border-color: #8b0000;
+  background: #fff8e7;
+}
+
+.species-card.selected {
+  border-color: #8b0000;
+  background: #8b0000;
+  color: white;
+}
+
+.species-chosen {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 500px) {
+  .species-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
