@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './SpeciesSelector.css'
 
-const SPECIES = ['Human', 'Dwarf', 'Elf', 'Halfling']
+const SPECIES = ['Human', 'Dwarf', 'Elf', 'Halfling'] as const
 
 type Species = typeof SPECIES[number]
 
