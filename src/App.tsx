@@ -1,6 +1,10 @@
+import { useState } from 'react'
+import SpeciesSelector from './components/SpeciesSelector'
 import './App.css'
 
 function App() {
+  const [selectedSpecies, setSelectedSpecies] = useState<string | null>(null)
+
   return (
     <div className="app">
       <header>
@@ -9,7 +13,10 @@ function App() {
       </header>
 
       <main>
-        <p>Character creation will go here.</p>
+        <SpeciesSelector
+          selected={selectedSpecies}
+          onSelect={setSelectedSpecies}
+        />
       </main>
     </div>
   )
