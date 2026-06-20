@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local game data (copyrighted - do not commit)
+data/
+public/data/

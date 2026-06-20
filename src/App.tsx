@@ -16,13 +16,17 @@ function App() {
   const [selectedCareer, setSelectedCareer] = useState<Career | null>(null)
 
   const handleRoll = () => {
-    setCharacteristics(rollCharacteristics())
+    if (selectedSpecies) {
+      setCharacteristics(rollCharacteristics(selectedSpecies))
+    }
   }
 
   const handleSpeciesSelect = (species: Species) => {
     setSelectedSpecies(species)
     setSelectedCareer(null)
   }
+
+  
 
   return (
     <div className="app">
