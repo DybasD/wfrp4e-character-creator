@@ -17,11 +17,10 @@ const DEFAULT_MODIFIERS: SpeciesModifiers = {
 
 let speciesModifiers: SpeciesModifiers = DEFAULT_MODIFIERS
 
-try {
-  const localData = await import('@data/species.json')
-  speciesModifiers = localData.default as SpeciesModifiers
-} catch {
-  // No local data file — using defaults
+const dataFiles = import.meta.glob('/data/species.json', { eager: true })
+const localData = dataFiles['/data/species.json'] as { default: SpeciesModifiers } | undefined
+if (localData) {
+  speciesModifiers = localData.default
 }
 
 export function getSpeciesModifier(species: Species, characteristic: CharacteristicName): number {
