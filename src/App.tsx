@@ -7,6 +7,7 @@ import { rollCharacteristics } from './game/characteristics'
 import type { Characteristics } from './game/characteristics'
 import { getCareersForSpecies } from './game/careers'
 import type { Career } from './game/careers'
+import CharacterSheet from './components/CharacterSheet'
 import './App.css'
 
 function App() {
@@ -48,6 +49,14 @@ function App() {
             careers={getCareersForSpecies(selectedSpecies)}
             selected={selectedCareer}
             onSelect={setSelectedCareer}
+          />
+        )}
+
+        {selectedSpecies && characteristics && selectedCareer && (
+          <CharacterSheet
+            species={selectedSpecies}
+            characteristics={characteristics}
+            career={selectedCareer}
           />
         )}
       </main>
