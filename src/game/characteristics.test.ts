@@ -3,17 +3,16 @@ import { rollCharacteristics, CHARACTERISTIC_NAMES } from './characteristics'
 
 describe('rollCharacteristics', () => {
   it('returns an object with all 10 characteristics', () => {
-    const result = rollCharacteristics()
+    const result = rollCharacteristics('Human')
 
     for (const name of CHARACTERISTIC_NAMES) {
       expect(result[name]).toBeDefined()
     }
   })
 
-  it('produces values in the 2d10+20 range (22-40)', () => {
-    // Roll many times to check the range
+  it('produces values in the valid range for Humans (22-40)', () => {
     for (let i = 0; i < 100; i++) {
-      const result = rollCharacteristics()
+      const result = rollCharacteristics('Human')
 
       for (const name of CHARACTERISTIC_NAMES) {
         expect(result[name]).toBeGreaterThanOrEqual(22)
@@ -23,10 +22,9 @@ describe('rollCharacteristics', () => {
   })
 
   it('produces different results on subsequent rolls', () => {
-    const roll1 = rollCharacteristics()
-    const roll2 = rollCharacteristics()
+    const roll1 = rollCharacteristics('Human')
+    const roll2 = rollCharacteristics('Human')
 
-    // With 10 characteristics, the chance of two identical rolls is vanishingly small
     const allSame = CHARACTERISTIC_NAMES.every(
       (name) => roll1[name] === roll2[name]
     )
@@ -34,7 +32,7 @@ describe('rollCharacteristics', () => {
   })
 
   it('returns exactly 10 characteristics', () => {
-    const result = rollCharacteristics()
+    const result = rollCharacteristics('Human')
     const keys = Object.keys(result)
 
     expect(keys).toHaveLength(10)

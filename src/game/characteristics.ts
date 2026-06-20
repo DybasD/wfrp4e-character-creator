@@ -1,3 +1,6 @@
+import type { Species } from '../components/SpeciesSelector'
+import { getSpeciesModifier } from './speciesData'
+
 export const CHARACTERISTIC_NAMES = [
   'WS', 'BS', 'S', 'T', 'I', 'Agi', 'Dex', 'Int', 'WP', 'Fel'
 ] as const
@@ -23,14 +26,11 @@ function rollD10(): number {
   return Math.floor(Math.random() * 10) + 1
 }
 
-function roll2d10Plus20(): number {
-  return rollD10() + rollD10() + 20
-}
-
-export function rollCharacteristics(): Characteristics {
+export function rollCharacteristics(species: Species): Characteristics {
   const result = {} as Characteristics
   for (const name of CHARACTERISTIC_NAMES) {
-    result[name] = roll2d10Plus20()
+    const modifier = getSpeciesModifier(species, name)
+    result[name] = rollD10() + rollD10() + modifier
   }
   return result
 }
