@@ -3,7 +3,7 @@ import './SpeciesSelector.css'
 
 const SPECIES = ['Human', 'Dwarf', 'Elf', 'Halfling'] as const
 
-type Species = typeof SPECIES[number]
+export type Species = typeof SPECIES[number]
 
 interface SpeciesSelectorProps {
     onSelect: (species: Species) => void
@@ -26,7 +26,7 @@ function SpeciesSelector({ onSelect, selected }: SpeciesSelectorProps) {
                 ))}
             </div>
             {selected && (
-                <p className="spiecies-chosen">
+                <p className="species-chosen">
                     Selected: <strong>{selected}</strong>
                 </p>
                         )}

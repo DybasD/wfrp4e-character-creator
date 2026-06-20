@@ -1,0 +1,60 @@
+.stat-roller {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.stat-roller h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  color: #8b0000;
+  margin-bottom: 1rem;
+}
+
+.roll-button {
+  padding: 0.75rem 2rem;
+  border: 2px solid #8b0000;
+  border-radius: 6px;
+  background: #8b0000;
+  color: white;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 1.5rem;
+}
+
+.roll-button:hover {
+  background: #6d0000;
+}
+
+.stats-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.stats-table th {
+  background: #f4f1eb;
+  padding: 0.5rem;
+  border: 1px solid #d4c5a9;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: help;
+}
+
+.stats-table td {
+  padding: 0.6rem;
+  border: 1px solid #d4c5a9;
+  font-size: 1.1rem;
+  font-family: 'Consolas', 'Courier New', monospace;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .stats-table th,
+  .stats-table td {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+  }
+}
