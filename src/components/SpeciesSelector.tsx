@@ -1,4 +1,3 @@
-import { useState } from "react"
 import './SpeciesSelector.css'
 
 const SPECIES = ['Human', 'Dwarf', 'Elf', 'Halfling'] as const
