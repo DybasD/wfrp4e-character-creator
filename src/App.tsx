@@ -34,6 +34,9 @@ function App() {
           />
         )}
       </main>
+      <footer>
+        <p>WFRP4e Character Creator | Built with React + TypeScript</p>
+      </footer>
     </div>
   )
 }
