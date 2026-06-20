@@ -18,7 +18,6 @@ const DEFAULT_MODIFIERS: SpeciesModifiers = {
 let speciesModifiers: SpeciesModifiers = DEFAULT_MODIFIERS
 
 try {
-  // @ts-ignore: local data file may not exist in CI
   const localData = await import('@data/species.json')
   speciesModifiers = localData.default as SpeciesModifiers
 } catch {
