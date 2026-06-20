@@ -1,9 +1,18 @@
 import { useState } from 'react'
 import SpeciesSelector from './components/SpeciesSelector'
+import type { Species } from './components/SpeciesSelector'
+import StatRoller from './components/StatRoller'
+import { rollCharacteristics } from './game/characteristics'
+import type { Characteristics } from './game/characteristics'
 import './App.css'
 
 function App() {
-  const [selectedSpecies, setSelectedSpecies] = useState<string | null>(null)
+  const [selectedSpecies, setSelectedSpecies] = useState<Species | null>(null)
+  const [characteristics, setCharacteristics] = useState<Characteristics | null>(null)
+
+  const handleRoll = () => {
+    setCharacteristics(rollCharacteristics())
+  }
 
   return (
     <div className="app">
@@ -17,6 +26,13 @@ function App() {
           selected={selectedSpecies}
           onSelect={setSelectedSpecies}
         />
+
+        {selectedSpecies && (
+          <StatRoller
+            characteristics={characteristics}
+            onRoll={handleRoll}
+          />
+        )}
       </main>
     </div>
   )
